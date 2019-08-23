@@ -2,11 +2,12 @@ GEM
   remote: https://rubygems.org/
   specs:
     backports (3.15.0)
-    domain_name (0.5.20180417)
+    domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
+    http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     mime-types (3.2.2)
@@ -19,7 +20,8 @@ GEM
     rack (2.0.7)
     rack-protection (2.0.5)
       rack
-    rest-client (2.0.2)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
