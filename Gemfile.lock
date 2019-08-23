@@ -4,7 +4,7 @@ GEM
     backports (3.15.0)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
-    haml (5.1.0)
+    haml (5.1.2)
       temple (>= 0.8.0)
       tilt
     http-cookie (1.0.3)
