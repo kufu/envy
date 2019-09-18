@@ -5,8 +5,8 @@
     "Ruby",
     "Sinatra"
   ],
-  "website": "https://github.com/purintai/envy",
-  "repository": "https://github.com/purintai/envy",
+  "website": "https://github.com/kufu/envy",
+  "repository": "https://github.com/kufu/envy",
   "env": {
     "CUSTOM_RUBY_VERSION": {
       "description": "Ruby version",
