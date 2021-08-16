@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 source "https://rubygems.org"
 
-if v = ENV['CUSTOM_RUBY_VERSION']
-  ruby v
-end
+ruby File.read(File.join(File.dirname(__FILE__), ".ruby-version")).strip
 
 gem 'sinatra'
 gem 'sinatra-contrib'
