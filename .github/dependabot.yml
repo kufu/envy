@@ -7,7 +7,3 @@ updates:
     time: "07:00"
     timezone: Asia/Tokyo
   open-pull-requests-limit: 99
-  ignore:
-  - dependency-name: puma
-    versions:
-    - 5.2.0
