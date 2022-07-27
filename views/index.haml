@@ -18,10 +18,8 @@
 
   %form{action: '/', method: 'post'}
     %input{type: 'text', id: 'js-values-field', name: 'jsenv', value: '', hidden: true}
-    %input{type: 'text', id: 'message', name: 'message', value: '', hidden: true}
     %button{class: 'submitButton', type: 'submit', id: 'submit-button'}
       %i.fa.fa-fw.fa-paper-plane-o
       情報を送信する
 
-  %script{type: 'text/javascript', src: "https://system-requirements.smarthr.jp/envy.js"}
   %script{type: 'text/javascript', src: "javascript/main.js?t=#{Time.now.to_i}"}

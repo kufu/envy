@@ -25,7 +25,6 @@ class App < Sinatra::Base
       token: ENV['SLACK_TOKEN'],
       channels: ENV['SLACK_CHANNEL'],
       filetype: 'javascript',
-      initial_comment: params[:message]
       content: JSON.pretty_generate(content)
     }
 
