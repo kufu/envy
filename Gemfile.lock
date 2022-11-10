@@ -3,7 +3,7 @@ GEM
   specs:
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    haml (6.0.8)
+    haml (6.0.10)
       temple (>= 0.8.2)
       thor
       tilt
