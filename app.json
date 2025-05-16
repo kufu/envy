@@ -22,5 +22,6 @@
       "quantity": 1
     }
   },
-  "image": "heroku/ruby"
+  "image": "heroku/ruby",
+  "stack": "heroku-21"
 }
