@@ -3,6 +3,9 @@ Bundler.require
 
 require 'json'
 require 'securerandom'
+require 'logger'
+
+$logger = Logger.new(STDOUT)
 
 class App < Sinatra::Base
   configure :development do
@@ -29,7 +32,8 @@ class App < Sinatra::Base
       content: JSON.pretty_generate(content)
     }
 
-    RestClient.post('https://slack.com/api/files.upload', payload)
+    response = RestClient.post('https://slack.com/api/files.upload', payload)
+    $logger.info(response.body)
 
     haml :thanks
   end
