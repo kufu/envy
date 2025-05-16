@@ -15,6 +15,10 @@
     "SLACK_CHANNEL": {
       "description": "Slack channel",
       "value": ""
+    },
+    "BOT_USER_OAUTH_TOKEN": {
+      "description": "envy bot token",
+      "value": ""
     }
   },
   "formation": {
