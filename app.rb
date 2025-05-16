@@ -20,7 +20,7 @@ def send_slack_message(initial_comment, msg)
         channel: channel_id,
         text: initial_comment,
         # blocks: %Q|[{"type":"section","text":{"type":"mrkdwn","text": "#{msg}"}}]|
-        blocks: JSON.dump([{type: 'section', text: {type: 'mrkdwn', text: msg}}])
+        attachments: JSON.dump([{pretext: '詳細', text: msg}])
     )
 end
 
