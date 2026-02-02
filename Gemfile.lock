@@ -83,7 +83,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
-    uri (1.0.3)
+    uri (1.0.4)
 
 PLATFORMS
   ruby
