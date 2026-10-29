@@ -137,7 +137,7 @@
     }
 
     navigator.clipboard.writeText(text).then(function() {
-      status.textContent = 'コピーしました。';
+      status.textContent = '';
       showCopied(button);
     }, function() {
       status.textContent = 'コピーできませんでした。表示された内容を選択してコピーしてください。';
