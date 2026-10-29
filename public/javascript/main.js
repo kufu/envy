@@ -99,14 +99,37 @@
   }
 
   function showResult() {
+    var result = document.getElementById('result');
+
     document.getElementById('result-text').textContent = buildResultText();
     document.getElementById('copy-status').textContent = '';
-    document.getElementById('result').hidden = false;
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  var copyButtonTimer = null;
+
+  // コピーできたことが分かるよう、ボタンの表示を少しの間だけ切り替える
+  function showCopied(button) {
+    var label = button.querySelector('.buttonLabel');
+    var icon = button.querySelector('.fa');
+
+    label.textContent = 'コピーしました';
+    icon.className = 'fa fa-fw fa-check';
+    button.classList.add('isDone');
+
+    clearTimeout(copyButtonTimer);
+    copyButtonTimer = setTimeout(function() {
+      label.textContent = '内容をコピーする';
+      icon.className = 'fa fa-fw fa-clipboard';
+      button.classList.remove('isDone');
+    }, 2000);
   }
 
   function copyResult() {
     var text = document.getElementById('result-text').textContent;
     var status = document.getElementById('copy-status');
+    var button = document.getElementById('copy-button');
 
     if (!navigator.clipboard) {
       status.textContent = 'コピーできませんでした。表示された内容を選択してコピーしてください。';
@@ -115,6 +138,7 @@
 
     navigator.clipboard.writeText(text).then(function() {
       status.textContent = 'コピーしました。';
+      showCopied(button);
     }, function() {
       status.textContent = 'コピーできませんでした。表示された内容を選択してコピーしてください。';
     });

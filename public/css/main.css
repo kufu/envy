@@ -60,6 +60,26 @@ section .submitButton {
 
   appearance: none;
   -webkit-appearance: none;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.05s;
+}
+
+section .submitButton:hover {
+  background-color: #2fb8bf;
+}
+
+section .submitButton:active {
+  transform: scale(0.98);
+}
+
+section .submitButton:focus-visible {
+  outline: 3px solid #31708f;
+  outline-offset: 2px;
+}
+
+section .submitButton.isDone {
+  background-color: #5cb85c;
+  border-color: #5cb85c;
 }
 
 section .notice {
