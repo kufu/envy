@@ -1,107 +1,23 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    base64 (0.2.0)
-    domain_name (0.5.20190701)
-      unf (>= 0.0.5, < 1.0.0)
-    faraday (2.14.4)
-      faraday-net_http (>= 2.0, < 3.5)
-      json
-      logger
-    faraday-mashify (1.0.3)
-      faraday (~> 2.0)
-      hashie
-    faraday-multipart (1.2.0)
-      multipart-post (~> 2.0)
-    faraday-net_http (3.4.4)
-      net-http (~> 0.5)
-    haml (7.5.0)
-      prism (>= 1.1.0)
-      temple (>= 0.8.2)
-      thor
-      tilt
-    hashie (5.1.0)
-      logger
-    http-accept (1.7.0)
-    http-cookie (1.0.4)
-      domain_name (~> 0.5)
-    json (3.1.0)
-    logger (1.7.0)
-    mime-types (3.3.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0901)
-    multi_json (1.15.0)
-    multipart-post (2.4.1)
-    mustermann (3.0.3)
-      ruby2_keywords (~> 0.0.1)
-    net-http (0.10.0)
-      net-protocol (>= 0.3.0)
-      uri (>= 0.11.1)
-    net-protocol (0.4.0)
-      timeout
-    netrc (0.11.0)
     nio4r (2.7.5)
-    prism (1.9.0)
     puma (7.2.0)
       nio4r (~> 2.0)
     rack (3.2.6)
-    rack-protection (4.1.1)
-      base64 (>= 0.1.0)
-      logger (>= 1.6.0)
-      rack (>= 3.0.0, < 4)
-    rack-session (2.1.1)
-      base64 (>= 0.1.0)
-      rack (>= 3.0.0)
     rackup (2.3.1)
       rack (>= 3)
-    rest-client (2.1.0)
-      http-accept (>= 1.7.0, < 2.0)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 4.0)
-      netrc (~> 0.8)
-    ruby2_keywords (0.0.5)
-    sinatra (4.1.1)
-      logger (>= 1.6.0)
-      mustermann (~> 3.0)
-      rack (>= 3.0.0, < 4)
-      rack-protection (= 4.1.1)
-      rack-session (>= 2.0.0, < 3)
-      tilt (~> 2.0)
-    sinatra-contrib (4.1.1)
-      multi_json (>= 0.0.2)
-      mustermann (~> 3.0)
-      rack-protection (= 4.1.1)
-      sinatra (= 4.1.1)
-      tilt (~> 2.0)
-    slack-ruby-client (3.3.0)
-      faraday (>= 2.0.1)
-      faraday-mashify
-      faraday-multipart
-      hashie
-      logger
-    temple (0.10.7)
-    thor (1.5.0)
-    tilt (2.9.0)
-    timeout (0.6.1)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.7.7)
-    uri (1.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  haml
   puma
+  rack
   rackup
-  rest-client
-  sinatra
-  sinatra-contrib
-  slack-ruby-client
 
 RUBY VERSION
-   ruby 3.2.8p263
+  ruby 3.2.8p263
 
 BUNDLED WITH
    2.2.32

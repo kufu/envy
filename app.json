@@ -1,26 +1,12 @@
 {
   "name": "ENVY",
-  "description": "Collects and send the visitor's browser environment values.",
+  "description": "Displays the visitor's browser environment values.",
   "keywords": [
     "Ruby",
-    "Sinatra"
+    "Rack"
   ],
   "website": "https://github.com/kufu/envy",
   "repository": "https://github.com/kufu/envy",
-  "env": {
-    "SLACK_TOKEN": {
-      "description": "Slack legacy token: https://api.slack.com/custom-integrations/legacy-tokens",
-      "value": ""
-    },
-    "SLACK_CHANNEL": {
-      "description": "Slack channel",
-      "value": ""
-    },
-    "BOT_USER_OAUTH_TOKEN": {
-      "description": "envy bot token",
-      "value": ""
-    }
-  },
   "formation": {
     "web": {
       "quantity": 1

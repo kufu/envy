@@ -44,5 +44,82 @@
     };
   }
 
-  document.getElementById('js-values-field').value = JSON.stringify(generateEnvyValue());
+  // 4 桁の 16 進数のトークン
+  function generateInquiryToken() {
+    var bytes = new Uint8Array(2);
+    window.crypto.getRandomValues(bytes);
+
+    return Array.prototype.map.call(bytes, function(b) {
+      return ('0' + b.toString(16)).slice(-2);
+    }).join('').toUpperCase();
+  }
+
+  // URL の chat_id は SP が問い合わせを判別するための数字なので、数字以外は表示しない
+  function getChatId() {
+    var chatId = new URLSearchParams(window.location.search).get('chat_id');
+
+    return chatId !== null && /^\d{1,30}$/.test(chatId) ? chatId : null;
+  }
+
+  // envy.js は Slack 向けの文面を作るので、お客様の画面向けに絵文字コードと太字の記号を置き換える
+  var SLACK_EMOJI = {
+    ':white_check_mark:': '✅',
+    ':warning:': '⚠️',
+    ':x:': '❌',
+    ':thinking_face:': '🤔',
+  };
+
+  function toPlainText(slackText) {
+    return slackText
+      .replace(/:[a-z_]+:/g, function(code) { return SLACK_EMOJI[code] || code; })
+      .replace(/\*([^*\n]+)\*/g, '$1');
+  }
+
+  function buildResultText() {
+    var message = document.getElementById('message').value;
+    var chatId = getChatId();
+
+    var content = {};
+    content.inquery_token = generateInquiryToken();
+    if (chatId !== null) {
+      content.chat_id = chatId;
+    }
+    content.javascript_env = generateEnvyValue();
+
+    var lines = [];
+    if (chatId !== null) {
+      lines.push('■お問い合わせ番号: ' + chatId);
+    }
+    lines.push(message === '' ? '■ユーザー環境: 判定できませんでした' : toPlainText(message));
+    lines.push('');
+    lines.push('詳細');
+    lines.push(JSON.stringify(content, null, 2));
+
+    return lines.join('\n');
+  }
+
+  function showResult() {
+    document.getElementById('result-text').textContent = buildResultText();
+    document.getElementById('copy-status').textContent = '';
+    document.getElementById('result').hidden = false;
+  }
+
+  function copyResult() {
+    var text = document.getElementById('result-text').textContent;
+    var status = document.getElementById('copy-status');
+
+    if (!navigator.clipboard) {
+      status.textContent = 'コピーできませんでした。表示された内容を選択してコピーしてください。';
+      return;
+    }
+
+    navigator.clipboard.writeText(text).then(function() {
+      status.textContent = 'コピーしました。';
+    }, function() {
+      status.textContent = 'コピーできませんでした。表示された内容を選択してコピーしてください。';
+    });
+  }
+
+  document.getElementById('show-button').addEventListener('click', showResult);
+  document.getElementById('copy-button').addEventListener('click', copyResult);
 })();
