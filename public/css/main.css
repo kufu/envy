@@ -47,7 +47,7 @@ section dl dd ul {
   margin-left: 1.5em;
 }
 
-form .submitButton {
+section .submitButton {
   background-color: #43D0D7;
   border-radius: 3px;
   border: 1px solid rgb(67, 208, 215);
@@ -60,4 +60,52 @@ form .submitButton {
 
   appearance: none;
   -webkit-appearance: none;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.05s;
+}
+
+section .submitButton:hover {
+  background-color: #2fb8bf;
+}
+
+section .submitButton:active {
+  transform: scale(0.98);
+}
+
+section .submitButton:focus-visible {
+  outline: 3px solid #31708f;
+  outline-offset: 2px;
+}
+
+section .submitButton.isDone {
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+
+section .notice {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.result {
+  margin-top: 40px;
+}
+
+.result .resultText {
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  color: #333;
+  font-size: 13px;
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow: auto;
+  padding: 15px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.result .copyStatus {
+  margin-top: 10px;
+  text-align: center;
 }

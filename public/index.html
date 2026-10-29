@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>デバイス情報調査</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" media="all" href="css/main.css">
+  </head>
+  <body>
+    <section>
+      <h1>デバイス情報調査</h1>
+
+      <p>
+        SmartHR が正しく動作しない状況がおきており、ご不便おかけしております。
+        <br>
+        不具合の原因調査のため、お客様のご利用端末、環境 (OS・ブラウザなど) の情報を確認させていただきたく存じます。
+        <br>
+        つきましては、下記の「情報を表示する」ボタンを押し、表示された内容をコピーしてお問い合わせ窓口へお送りください。
+      </p>
+
+      <dl class="notification">
+        <dt>表示されるお客様の情報</dt>
+        <dd>
+          <ul>
+            <li>利用端末の情報</li>
+            <li>利用 OS の情報</li>
+            <li>利用ブラウザの情報</li>
+          </ul>
+        </dd>
+      </dl>
+
+      <p class="notice">
+        ボタンを押しても、情報が自動で弊社に送信されることはありません。
+      </p>
+
+      <textarea id="message" hidden></textarea>
+      <button class="submitButton" type="button" id="show-button">
+        <i class="fa fa-fw fa-desktop"></i>
+        情報を表示する
+      </button>
+
+      <div class="result" id="result" hidden>
+        <p>以下の内容をすべてコピーし、お問い合わせ窓口へお送りください。</p>
+        <pre class="resultText" id="result-text"></pre>
+        <button class="submitButton" type="button" id="copy-button">
+          <i class="fa fa-fw fa-clipboard"></i>
+          <span class="buttonLabel" aria-live="polite">内容をコピーする</span>
+        </button>
+        <p class="copyStatus" id="copy-status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <script src="https://system-requirements.smarthr.jp/envy.js"></script>
+    <script src="javascript/main.js"></script>
+  </body>
+</html>
