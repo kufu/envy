@@ -10,6 +10,28 @@ CONTENT_SECURITY_POLICY = [
   "frame-ancestors 'none'"
 ].join('; ')
 
+# Heroku は HTTP のリクエストもそのまま受け付けるので、HTTPS にリダイレクトする
+class ForceHttps
+  def initialize(app)
+    @app = app
+  end
+
+  def call(env)
+    request = Rack::Request.new(env)
+
+    if request.get_header('HTTP_X_FORWARDED_PROTO') == 'http'
+      location = "https://#{request.host}#{request.fullpath}"
+      return [301, { 'location' => location, 'content-type' => 'text/plain' }, ['Moved Permanently']]
+    end
+
+    status, headers, body = @app.call(env)
+    headers['strict-transport-security'] = 'max-age=31536000' if request.get_header('HTTP_X_FORWARDED_PROTO') == 'https'
+    [status, headers, body]
+  end
+end
+
+use ForceHttps
+
 use Rack::Static,
   urls: [''],
   root: 'public',
